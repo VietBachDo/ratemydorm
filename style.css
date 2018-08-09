@@ -1,13 +1,24 @@
 .fa-bed {
-  color: #6666ff;
+    color: #6666ff;
 }
-.navbar-brand {
-  font-style: oblique;
+.nav-title {
+  font-weight: 400;
   font-size: 30px;
   color: #6666ff;
+  position: relative;
+  right: 21%;
+  font-weight: bold;
 }
 .form-control {
   position: relative;
   right: 100%;
   width: 350px !important;
+  margin-top: 15px;
+}
+button.btn-outline-success {
+  position: relative;
+  right: 100%;
+  top: 8px;
+  height: 6%;
+  color: #6666ff;
 }
