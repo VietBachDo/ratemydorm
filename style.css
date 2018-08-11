@@ -1,14 +1,89 @@
+.navbar-light {
+    background: linear-gradient(to right, #1e3c72, #2a5298);
+}
 .fa-bed {
-    color: #6666ff;
+    color: #ffffff;
 }
 .nav-title {
-  font-weight: 400;
-  font-size: 30px;
-  color: #6666ff;
+  /* font-weight: 400;
+  font-size: 35px;
+  color: #ffffff;
   position: relative;
-  right: 21%;
-  font-weight: bold;
+  right: 20%;
+  font-family: Courier;
+  font-weight: bold; */
+  font: 84px 'Arial', sans-serif;
 }
+
+.nav-title span {
+  position: relative;
+}
+.nav-title span:before,
+.nav-title span:after {
+  content: '';
+  position: absolute;
+  border-width: 32px;/* makes a nice, big 64px square */
+  border-style: solid;
+  border-color: transparent;
+  height: 0;
+  z-index: 10;
+}
+
+/* stuff for 1st word */
+.nav-title .word1 {
+  color: #dc006c;
+  margin-right: -38px;
+  transform: rotateY();/* using Prefix free */
+  display: inline-block;/* required for transform */
+  z-index: 10;/* stack 1st word on top */
+}
+.nav-title .word1:before {
+  right: -4px;/* would be left, but we flipped the word */
+  top: -9px;
+  border-top-color: #282828;/* match background color */
+  border-right-color: #282828;/* would be left, but we flipped the word */
+}
+.nav-title .word1:after {
+  left: px;/* would be right, but we flipped the word */
+  bottom: 80px;
+  border-bottom-color: #282828;
+  border-left-color: #282828;/* would be right, but we flipped the word */
+}
+
+/* stuff for 2nd word */
+.nav-title .word2 {
+  z-index: 0;/* stack 2nd word below */
+}
+.nav-title .word2:before {
+  left: 100px;
+  top: -30px;
+  border-top-color: #282828;
+  border-left-color: #282828;
+}
+.nav-title .word2:after {
+  right: -4px;
+  bottom: 4px;
+  border-bottom-color: #282828;
+  border-right-color: #282828;
+}
+.nav-title .word0 {
+  z-index: 0;/* stack 2nd word below */
+  position: relative;
+
+}
+.nav-title .word0:before {
+  left: -4px;
+  top: -6px;
+  border-top-color: #282828;
+  border-left-color: #282828;
+}
+.nav-title .word0:after {
+
+  bottom: 4px;
+  border-bottom-color: #282828;
+  border-right-color: #282828;
+}
+
 .form-control {
   position: relative;
   right: 100%;
@@ -21,4 +96,10 @@ button.btn-outline-success {
   top: 8px;
   height: 6%;
   color: #6666ff;
+  border-color: #6666ff;
+}
+
+button.btn-outline-success:hover {
+  background-color: #6666ff;
+  color: #ffffff;
 }
