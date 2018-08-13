@@ -15,9 +15,12 @@ Including another URLconf
 """
 from django.conf.urls import url
 from . import views
+from django.views.generic import ListView, DetailView
 
 urlpatterns = [
     url(r'^$', views.homepage, name='homepage'),
     url(r'^about/$', views.about, name='about'),
-    url(r'^schools/$', views.schools, name='school'),
+    url(r'^schools/$', views.schools, name='schools'),
+    url(r'^data/$', views.addData, name='addData'),
+
 ]

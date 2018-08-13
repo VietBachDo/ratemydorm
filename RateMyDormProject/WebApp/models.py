@@ -1,9 +1,23 @@
 from django.db import models
 
+#table for colleges
+class College(models.Model):
+	name = models.CharField(max_length=50, blank=False)
+	nicknames = models.CharField(max_length=50)
+
+	#return name of college
+	def __str__(self):
+		return self.name
+
+
 #table for dorms
 class Dorm(models.Model):
 	name = models.CharField(max_length=50, blank=False)
-	college = models.CharField(max_length=50, blank=False)
+	college = models.ForeignKey(College, on_delete=models.CASCADE)
+
+	#return name of dorm
+	def __str__(self):
+		return self.name
 
 
 #table for reviews
