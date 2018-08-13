@@ -7,4 +7,7 @@ def homepage(request):
 def about(request):
 	return render(request, 'WebApp/about.html')
 
+def schools(request):
+	return render(request, 'WebApp/schools.html', {'content': ['Harvard', 'Yale', 'Kalamazoo']})
+
 # Create your views here.
