@@ -9,31 +9,37 @@ def homepage(request):
 def about(request):
 	return render(request, 'WebApp/about.html')
 
-def schools(request):
+#list all the schools
+def listSchools(request):
 	school_list = []
 
 	for school in College.objects.all():
 		school_list.append(school.name)
 	
 	context = {'Schools': sorted(school_list)}
-	return render(request, 'WebApp/schools.html', context)
+	return render(request, 'WebApp/schoolList.html', context)
+
+#list all the dorms of that college
+def schoolPage(request, school_name):
+	
+	dorm_list = Dorm.objects.filter(college__name=str(school_name))
+
+	context = {'Dorms': dorm_list, 'School': school_name}
+	return render(request, 'WebApp/school.html', context)
+
+def dormPage(request, dorm_name):
+
+	# dorm = get_object_or_404(Dorm, name=dorm_name)
+
+	# context = {'Name': dorm}
+	context = {'Name': "hey"}
+
+	return render(request, 'WebApp/dorm.html', context)
 
 
+#add list of colleges to database
 def addData(request):
 	all_colleges = College.objects.all()
-
-
-	# df = pd.read_excel("C:/Users/Zach/Desktop/projects/ratemydorm/list.xlsx","Sheet1")
-	# college_names = df['Name'].values.tolist()
-	# college_nicknames = df['Nicknames'].values.tolist()
-	# index = 0
-	# for name in college_names:
-	# nicknames = college_nicknames[index]
-	# index += 1
-
-	# if not name in all_colleges:
-	# 	entry = College(name=name, nicknames=nicknames)
-	# 	entry.save()
 
 	path = "C:/Users/Zach/Desktop/projects/ratemydorm/list.xlsx"
 
@@ -47,9 +53,6 @@ def addData(request):
 			entry = entry = College(name=name, nicknames=nicknames)
 			entry.save()
 
+	return render(request, 'WebApp/schoolList.html')
 
 
-
-
-
-	return render(request, 'WebApp/schools.html')

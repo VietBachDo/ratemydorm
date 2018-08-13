@@ -20,7 +20,9 @@ from django.views.generic import ListView, DetailView
 urlpatterns = [
     url(r'^$', views.homepage, name='homepage'),
     url(r'^about/$', views.about, name='about'),
-    url(r'^schools/$', views.schools, name='schools'),
+    url(r'^schools/$', views.listSchools, name='schools'),
     url(r'^data/$', views.addData, name='addData'),
+    url(r'(?P<school_name>[\w, -]+)$', views.schoolPage, name='schoolPage'),
+    url(r'(?P<dorm_name>[\w, -]+)$', views.dormPage, name='dormPage'),
 
 ]

@@ -1,0 +1,10 @@
+{% extends "WebApp/header.html" %}
+
+{% block content %}
+
+	{% for school in Schools %}
+		<a href="{% url 'schoolPage' school_name=school %} ">{{school}}</a><br>
+	{% endfor %}
+
+
+{% endblock %}
