@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import College, Dorm, Review
-import pandas as pd
+import xlrd
 
 def homepage(request):
 	return render(request, 'WebApp/home.html')
@@ -10,13 +10,12 @@ def about(request):
 	return render(request, 'WebApp/about.html')
 
 def schools(request):
-	all_dorms = Dorm.objects.all()
 	school_list = []
-	for dorm in all_dorms:
-		if not dorm.college in school_list:
-			school_list.append(dorm.college)
+
+	for school in College.objects.all():
+		school_list.append(school.name)
 	
-	context = {'Schools': school_list}
+	context = {'Schools': sorted(school_list)}
 	return render(request, 'WebApp/schools.html', context)
 
 
@@ -24,17 +23,33 @@ def addData(request):
 	all_colleges = College.objects.all()
 
 
-	df = pd.read_excel("C:/Users/Zach/Desktop/projects/ratemydorm/list.xlsx","Sheet1")
-	college_names = df['Name'].values.tolist()
-	college_nicknames = df['Nicknames'].values.tolist()
+	# df = pd.read_excel("C:/Users/Zach/Desktop/projects/ratemydorm/list.xlsx","Sheet1")
+	# college_names = df['Name'].values.tolist()
+	# college_nicknames = df['Nicknames'].values.tolist()
+	# index = 0
+	# for name in college_names:
+	# nicknames = college_nicknames[index]
+	# index += 1
 
-	index = 0
+	# if not name in all_colleges:
+	# 	entry = College(name=name, nicknames=nicknames)
+	# 	entry.save()
 
-	for name in college_names:
-		nicknames = college_nicknames[index]
-		index += 1
+	path = "C:/Users/Zach/Desktop/projects/ratemydorm/list.xlsx"
 
+	wb = xlrd.open_workbook(path)
+	sheet = wb.sheet_by_index(0)
+
+	for i in range(sheet.nrows):
+		name = sheet.cell_value(i,0)
 		if not name in all_colleges:
-			entry = College(name=name, nicknames=nicknames)
+			nicknames = sheet.cell_value(i,1)
+			entry = entry = College(name=name, nicknames=nicknames)
 			entry.save()
 
+
+
+
+
+
+	return render(request, 'WebApp/schools.html')
