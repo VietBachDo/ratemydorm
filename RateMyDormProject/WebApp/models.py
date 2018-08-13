@@ -10,3 +10,4 @@ class Dorm(models.Model):
 class Review(models.Model):
 	dorm = models.ForeignKey(Dorm, on_delete=models.CASCADE)
 	description = models.CharField(max_length=200,null=False)
+	timestamp = models.DateTimeField(auto_now_add=True)
