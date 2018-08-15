@@ -3,7 +3,7 @@ from django.db import models
 #table for colleges
 class College(models.Model):
 	name = models.CharField(max_length=50, blank=False)
-	nicknames = models.CharField(max_length=50)
+	nicknames = models.CharField(max_length=50, blank=True)
 
 	#return name of college
 	def __str__(self):

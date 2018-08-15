@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 from .models import College, Dorm, Review
 import xlrd
@@ -14,26 +14,22 @@ def listSchools(request):
 	school_list = []
 
 	for school in College.objects.all():
-		school_list.append(school.name)
+		name = school.name.replace(u'\xa0', u' ')
+		school_list.append(name)
 	
 	context = {'Schools': sorted(school_list)}
 	return render(request, 'WebApp/schoolList.html', context)
 
 #list all the dorms of that college
 def schoolPage(request, school_name):
-	
 	dorm_list = Dorm.objects.filter(college__name=str(school_name))
-
 	context = {'Dorms': dorm_list, 'School': school_name}
 	return render(request, 'WebApp/school.html', context)
 
+#
 def dormPage(request, dorm_name):
-
-	# dorm = get_object_or_404(Dorm, name=dorm_name)
-
-	# context = {'Name': dorm}
-	context = {'Name': "hey"}
-
+	dorm = get_object_or_404(Dorm, name=dorm_name)
+	context = {'Name': dorm}
 	return render(request, 'WebApp/dorm.html', context)
 
 
