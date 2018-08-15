@@ -24,7 +24,7 @@ body {
   display: block;
 }
 .dropdown-menu a:hover {
-  background-color: #b20000;
+  background-color:	#fbc8b7;
   font-weight: bold;
   color: #fefefe;
 }
@@ -35,86 +35,77 @@ body {
   color: #ffffff;
 }
 .fa-bars:hover {
-  color: #b20000;
+  color:#fbc8b7;
 }
 .icon {
   color: #fefefe;
   position: relative;
-  left: 86%;
+  left: 87%;
   bottom: 9%
 }
 .fa-facebook-square:hover {
-    color: #b20000;
+    color: #fbc8b7;
 }
 .fa-twitter-square:hover {
-    color: #b20000;
+    color: #fbc8b7;
 }
 .fa-instagram:hover {
-    color: #b20000;
+    color: #fbc8b7;
 }
 .fa-snapchat-square:hover{
-    color: #b20000;
+    color: #fbc8b7;
 }
-h1 {
-    color: #333333;
-    font-family: 'Julius Sans One', sans-serif;
-    font-size: 75px;
-    font-weight: normal;
-    text-align: center;
+.head_title{
+  color: #333333;
+  font-family: 'Julius Sans One', sans-serif;
+  font-size: 75px;
+  font-weight: normal;
+  text-align: center;
+  margin-top: -5%;
 }
-h3 {
+.search_title {
+  margin-top: -2%;
   color: #333333;
   font-family: 'Julius Sans One', sans-serif;
   font-size: 50px;
   font-weight: normal;
   text-align: center;
-}
-.container {
-  position: relative;
-  width: 25%;
-  top: 7%;
-  right: 15%;
-  border: 5px solid;
-  padding: 1px;
-  border-color: #fefefe;
+  background-color: #fbc8b7;
+  padding-bottom: 5%;
 }
 
-.container_1{
-  position: relative;
-  width: 25%;
-  bottom: 27.5%;
-  left: 50%;
-  border: 5px solid;
-  padding: 1px;
-  border-color: #fefefe;
+#search_box{
+  background-color:	#fbc8b7;
+  padding: 64px;
 }
 
+.thumbnail_overlay {
+  position: relative;
+  width: 60%;
+  left: 20%;
+
+
+}
 .image_thumb {
   display: block;
   width: 100%;
   height: auto;
 }
-
 .overlay {
   position: absolute;
-  bottom: 0;
+  top: 0;
   left: 0;
   right: 0;
   background-color: #b20000;
   overflow: hidden;
-  width: 0;
+  width: auto;
+  height: 0;
+  transition: .5s ease;
+}
+.thumbnail_overlay:hover .overlay {
+  bottom: 0;
   height: 100%;
-  transition: 0.5s ease;
 }
-
-.container:hover .overlay {
-  width: 100%;
-}
-
-.container_1:hover .overlay {
-  width: 100%;
-}
-
 .text_thumb {
   white-space: nowrap;
   color: #fefefe;
@@ -125,4 +116,33 @@ h3 {
   left:50%;
   transform: translate(-50%, -50%);
  -ms-transform: translate(-50%, -50%);
+}
+h4 {
+  font-family: 'Jua', sans-serif;
+}
+#quote {
+  background-color: #fefefe;
+  width: auto;
+  padding: 64px;
+  text-align: center;
+}
+#review_boxes {
+  padding-top: 50px;
+  text-align: center;
+}
+
+#box_1{
+  background-color: #fef3f1;
+}
+#box_2{
+  background-color: #fbc8b7;
+}
+li {
+  padding-bottom: 20px;
+}
+#box_3{
+  background-color: #fef3f1
+}
+.dorm_month{
+  width: 80%;
 }
