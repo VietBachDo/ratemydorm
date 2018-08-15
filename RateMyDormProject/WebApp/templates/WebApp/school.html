@@ -3,7 +3,7 @@
 {% block content %}
 
 	<h3>{{School}}</h3>
-	<h1>school.html</h1>
+	
 	{% for dorm in Dorms %}
 		<a href="{% url 'dormPage' dorm_name=dorm %}">{{dorm}}</a>
 	{% endfor %}

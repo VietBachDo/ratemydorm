@@ -4,6 +4,7 @@ from django.db import models
 class College(models.Model):
 	name = models.CharField(max_length=50, blank=False)
 	nicknames = models.CharField(max_length=50, blank=True)
+	url = models.CharField(max_length=20, blank=False)
 
 	#return name of college
 	def __str__(self):

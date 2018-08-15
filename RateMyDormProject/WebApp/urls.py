@@ -22,7 +22,8 @@ urlpatterns = [
     url(r'^about/$', views.about, name='about'),
     url(r'^schools/$', views.listSchools, name='schools'),
     url(r'^data/$', views.addData, name='addData'),
-    url(r'^(?P<school_name>[\w, -]+$)', views.schoolPage, name='schoolPage'),
-    url(r'^dorm/(?P<dorm_name>[\w, -]+)', views.dormPage, name='dormPage'),
+    url(r'^addDorms/$', views.addDorms, name='addDorms'),
+    url(r'^(?P<school_url>[\w, -]+)/$', views.schoolPage, name='schoolPage'),
+    url(r'^dorm/(?P<dorm_name>[\w, -]+)/$', views.dormPage, name='dormPage'),
 
 ]

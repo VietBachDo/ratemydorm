@@ -3,27 +3,42 @@ from django.http import HttpResponse
 from .models import College, Dorm, Review
 import xlrd
 
+#returns the homepage
 def homepage(request):
 	return render(request, 'WebApp/home.html')
 
+#returns the 'about' page
 def about(request):
 	return render(request, 'WebApp/about.html')
 
 #list all the schools
 def listSchools(request):
-	school_list = []
+
+	#list of dictionaries to store the school names and urls
+	names_and_urls = []
 
 	for school in College.objects.all():
-		name = school.name.replace(u'\xa0', u' ')
-		school_list.append(name)
-	
-	context = {'Schools': sorted(school_list)}
+		# name = school.name.replace(u'\xa0', u' ')
+		dictionary = {}
+		dictionary['name'] = school.name
+		dictionary['url'] = school.url
+		names_and_urls.append(dictionary)
+
+	context = {'Schools': names_and_urls}
+
+
 	return render(request, 'WebApp/schoolList.html', context)
 
 #list all the dorms of that college
-def schoolPage(request, school_name):
-	dorm_list = Dorm.objects.filter(college__name=str(school_name))
-	context = {'Dorms': dorm_list, 'School': school_name}
+def schoolPage(request, school_url):
+
+	#get the school name and its dorms
+	school = College.objects.get(url=school_url)
+	dorm_list = Dorm.objects.filter(college__url=str(school_url))
+
+	#send the list of dorms and the school name as context
+	context = {'Dorms': dorm_list, 'School': school.name}
+
 	return render(request, 'WebApp/school.html', context)
 
 #
@@ -46,9 +61,25 @@ def addData(request):
 		name = sheet.cell_value(i,0)
 		if not name in all_colleges:
 			nicknames = sheet.cell_value(i,1)
-			entry = entry = College(name=name, nicknames=nicknames)
+			url = sheet.cell_value(i,2)
+			entry = College(name=name, nicknames=nicknames, url=url)
 			entry.save()
 
 	return render(request, 'WebApp/schoolList.html')
 
 
+def addDorms(request):
+
+	all_dorms = Dorm.objects.filter(college='Harvard University')
+
+	path = "C:/Users/Zach/Desktop/projects/ratemydorm/dorms.xlsx"
+	wb = xlrd.open_workbook(path)
+	sheet = wb.sheet_by_index(1)
+
+	for i in range(sheet.nrows):
+		name = sheet.cell_value(i,0)
+		if not name in all_dorms:
+			entry = Dorm(name=name, college='Harvard University')
+			entry.save()
+
+	return render(request, 'WebApp/schoolList.html')
