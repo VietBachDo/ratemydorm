@@ -1,10 +1,10 @@
 {% extends "WebApp/header.html" %}
 
 {% block content %}
-	<h1>schoolList.html</h1>
-		{% for school in Schools|dictsort:"name"  %}
-			<a href="{% url 'schoolPage' school_url=school.url %}">{{school.name}}</p>
-		{% endfor %}
+	<!-- sort schools by name -->
+	{% for school in Schools|dictsort:"name"  %}
+		<a href="{% url 'schoolPage' school_url=school.url %}">{{school.name}}</p>
+	{% endfor %}
 
 
 

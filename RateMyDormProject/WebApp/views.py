@@ -67,7 +67,7 @@ def addData(request):
 
 	return render(request, 'WebApp/schoolList.html')
 
-
+#add dorms  from excel sheet to database
 def addDorms(request):
 
 	all_dorms = Dorm.objects.filter(college='Harvard University')
