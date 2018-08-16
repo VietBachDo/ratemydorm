@@ -1,7 +1,3 @@
-<!-- {% extends "WebApp/header.html" %}
-
-
-{%  block content %} -->
 
 <!DOCTYPE>
 <html lang="en">
@@ -12,22 +8,26 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
     <!-- <script defer src="/static/fontawesome/fa-v4-shim.js"></script> -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" href="style_home.css" type="text/css">
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'style_home.css' %}" >
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}" >
+    <link rel="stylesheet" type="text/css" href="{% static 'w3.css' %}" >
+    
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+
     <link href="https://fonts.googleapis.com/css?family=Julius+Sans+One" rel="stylesheet">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    
 </head>
 
 <body>
   <div class="dropdown">
     <i class="fas fa-bars fa-4x"></i>
     <div class="dropdown-menu">
-      <a href="#">Schools</a>
+      <a href="{% url 'schools' %}">Schools</a>
       <a href="#">Halls</a>
       <a href="#">News</a>
-      <a href="#">About</a>
+      <a href="{% url 'about' %}">About</a>
       <a href="#">Contact</a>
     </div>
   </div>
@@ -50,7 +50,8 @@
   </div>
   <div class="col-md-5">
         <div class="thumbnail_overlay">
-          <img src="hall_thumbnail.png" alt="Halls" class="image_thumb">
+          {% load staticfiles %}
+          <img src="{% static 'hall_thumbnail.png' %}" alt="Halls" class="image_thumb">
           <div class="overlay">
             <div class="text_thumb">by hall</div>
           </div>
@@ -58,7 +59,8 @@
 </div>
 <div class="col-md-5">
         <div class="thumbnail_overlay">
-            <img src="college_thumbnail.png" alt="Schools" class="image_thumb">
+            {% load staticfiles %}
+            <img src="{% static 'college_thumbnail.png' %}" alt="Schools" class="image_thumb">
             <div class="overlay">
                 <div class="text_thumb">by school</div>
             </div>
@@ -92,7 +94,9 @@
       </div>
       <div class="col-md-6" id="box_3">
         <h3><a href="#">Dorm of the Month</a></h3>
-          <img src="dorm_month.jpg" alt="Dorm of the Month" class="dorm_month">
+          {% load staticfiles %}
+          <img src="{% static 'dorm_month.jpg' %}" alt="Dorm of the Month" class="dorm_month">
+          
       </div>
     </div>
   </div>
@@ -100,7 +104,3 @@
 
 </body>
 </html>
-
-<!-- {% include "WebApp/snippets/testsnippet.html" %}
-
-{%  endblock  %} -->
