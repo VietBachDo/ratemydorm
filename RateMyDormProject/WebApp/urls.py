@@ -34,9 +34,13 @@ urlpatterns = [
     #domain.com/addDorms/
     url(r'^addDorms/$', views.addDorms, name='addDorms'),
 
-    #domain.com/<SCHOOL>/
+    #domain.com/<SCHOOL_NAME>/
     url(r'^(?P<school_url>[\w, -]+)/$', views.schoolPage, name='schoolPage'),
     
+    #domain.com/dorm/<DORM_NAME>
     url(r'^dorm/(?P<dorm_name>[\w, -]+)/$', views.dormPage, name='dormPage'),
+
+    #domain.com/<SCHOOL_NAME>/AddReview
+    url(r'^(?P<school_url>[\w, -]+)/AddReview/$', views.addReview.as_view(), name='add-review'),
 
 ]

@@ -1,7 +1,11 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import College, Dorm, Review
 import xlrd
+import calendar;
+import time;
+
 
 #returns the homepage
 def homepage(request):
@@ -33,7 +37,8 @@ def listSchools(request):
 def schoolPage(request, school_url):
 
 	#get the school name and its dorms
-	school = College.objects.get(url=school_url)
+	school = College.objects.get(url__iexact=school_url)
+	school_url = school.url
 	dorm_list = Dorm.objects.filter(college__url=str(school_url))
 
 	#send the list of dorms and the school name as context
@@ -83,3 +88,15 @@ def addDorms(request):
 			entry.save()
 
 	return render(request, 'WebApp/schoolList.html')
+
+
+class addReview(CreateView):
+	model = Review
+	fields = ['dorm', 'description']
+
+	# readonly_fields= ['timestamp']
+
+	def get_context_data(self, *args, **kwargs):
+		context = super(addReview, self).get_context_data(*args, **kwargs)
+		context['timestamp'] = calendar.timegm(time.gmtime())
+		return context

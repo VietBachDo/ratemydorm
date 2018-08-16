@@ -1,0 +1,12 @@
+{% extends 'WebApp/header.html' %}
+
+{% block content %}
+	<form method="POST" enctype="multipart/form-data">
+		{% csrf_token %}
+		{% for field in form %}
+			{{field.label_tag}} {{field}} <br>
+		{% endfor %}
+		<button type="submit">Add Review</button>
+		
+	</form>
+{% endblock %}
