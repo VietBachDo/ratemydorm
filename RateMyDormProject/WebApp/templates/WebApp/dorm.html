@@ -2,4 +2,11 @@
 
 {% block content %}
 	<p>{{Name}}</p>
+
+	{% for review in Reviews %}
+		{{review.timestamp}}<br>
+		{{review.year_lived}}<br>
+		{{review.description}}<br><br>
+		
+	{% endfor %}
 {% endblock %}

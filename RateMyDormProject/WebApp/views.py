@@ -48,8 +48,15 @@ def schoolPage(request, school_url):
 
 #
 def dormPage(request, dorm_name):
+	#get dorm object
 	dorm = get_object_or_404(Dorm, name=dorm_name)
-	context = {'Name': dorm}
+
+	#get reviews in reverse chronological order
+	reviews = Review.objects.filter(dorm__name=dorm_name).order_by('-timestamp')
+
+	#send the name of the dorm and its reviews as context
+	context = {'Name': dorm, 'Reviews': reviews}
+	
 	return render(request, 'WebApp/dorm.html', context)
 
 
@@ -92,9 +99,7 @@ def addDorms(request):
 
 class addReview(CreateView):
 	model = Review
-	fields = ['dorm', 'description']
-
-	# readonly_fields= ['timestamp']
+	fields = ['dorm', 'description', 'year_lived']
 
 	def get_context_data(self, *args, **kwargs):
 		context = super(addReview, self).get_context_data(*args, **kwargs)
