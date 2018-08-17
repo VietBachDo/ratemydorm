@@ -1,124 +1,128 @@
+
 body {
-  background-image: url("dorm_good-min.png");
-  background-size:cover;
+  background-color: #fcfae8;
   overflow-x: hidden;
+  margin: 0;
 }
-.dropdown {
-  position: relative;
-  display: inline-block;
-  margin-top: 15px;
-  margin-left: 30px;
-}
-.dropdown-menu{
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5);
-  z-index: 1;
-}
-.dropdown-menu a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-}
-.dropdown-menu a:hover {
-  background-color:	#fbc8b7;
-  font-weight: bold;
-  color: #fefefe;
-}
-.dropdown:hover .dropdown-menu{
-  display: block;
-}
-.fa-bars {
-  color: #ffffff;
-}
-.fa-bars:hover {
-  color:#fbc8b7;
-}
-.icon {
-  color: #fefefe;
-  position: relative;
-  left: 87%;
-  bottom: 9%
-}
-.fa-facebook-square:hover {
-    color: #fbc8b7;
-}
-.fa-twitter-square:hover {
-    color: #fbc8b7;
-}
-.fa-instagram:hover {
-    color: #fbc8b7;
-}
-.fa-snapchat-square:hover{
-    color: #fbc8b7;
-}
-.head_title{
-  color: #333333;
-  font-family: 'Julius Sans One', sans-serif;
+h1 {
+  font-family: 'Leckerli One', cursive;
   font-size: 75px;
-  font-weight: normal;
+}
+h3 {
   text-align: center;
-  margin-top: -5%;
-}
-.search_title {
-  margin-top: -2%;
-  color: #333333;
-  font-family: 'Julius Sans One', sans-serif;
-  font-size: 50px;
-  font-weight: normal;
-  text-align: center;
-  background-color: #fbc8b7;
-  padding-bottom: 5%;
-}
-
-#search_box{
-  background-color:	#fbc8b7;
-  padding: 64px;
-}
-
-.thumbnail_overlay {
-  position: relative;
-  width: 60%;
-  left: 20%;
-
-
-}
-.image_thumb {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-.overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  background-color: #b20000;
-  overflow: hidden;
-  width: auto;
-  height: 0;
-  transition: .5s ease;
-}
-.thumbnail_overlay:hover .overlay {
-  bottom: 0;
-  height: 100%;
-}
-.text_thumb {
-  white-space: nowrap;
-  color: #fefefe;
-  font-size: 20px;
-  position: absolute;
-  overflow: hidden;
-  top:50%;
-  left:50%;
-  transform: translate(-50%, -50%);
- -ms-transform: translate(-50%, -50%);
+  font-family: 'Corben', cursive;
+  font-size: 30px;
+  color: #3b1261;
 }
 h4 {
-  font-family: 'Jua', sans-serif;
+  text-align: center;
+  font-family: 'Corben', cursive;
+  font-size: 18px;
+}
+h5 {
+  text-align: center;
+  font-family: 'Corben', cursive;
+  font-size: 15px;
+  color: #551a8b;
+}
+p {
+  text-align: justify;
+  width: 80%;
+  font-size: 12px;
+  font-family: 'Corben', cursive;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+q{
+  font-size: 35px;
+}
+
+.slideshow-container {
+  position: relative;
+  background-color: #fcfae8;
+  width: 100%;
+}
+
+/* Slides */
+.mySlides {
+  display: none;
+  padding: 80px;
+  text-align: center;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  position: absolute;
+  top: 40%;
+  width: auto;
+  margin-top: -20px;
+  margin-left: 150px;
+  margin-right: 150px;
+}
+
+/* Position the "next button" to the right */
+.next {
+  position: absolute;
+  right: 0;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.fa-chevron-circle-left, .fa-chevron-circle-right{
+  color: #b2b2b2;
+}
+
+.fa-chevron-circle-left:hover, .fa-chevron-circle-right:hover{
+  color: #191919;
+}
+
+.line {
+  width:110px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  bottom: 24%;
+  left:-27%;
+  background-color:#b2b2b2;
+}
+.line-2 {
+  width:110px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  bottom: 26.7%;
+  left:27%;
+  background-color:#b2b2b2;
+}
+
+
+
+/* The dot/bullet/indicator container */
+.dot-container {
+  text-align: center;
+  width: 100%;
+  height: 10%;
+  margin-top: -50px;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+/* Add a background color to the active dot/circle */
+.active, .dot:hover {
+  background-color: #717171;
+}
+/* Add a blue color to the author */
+.author {color: cornflowerblue;}
 }
 #quote {
   background-color: #fefefe;
@@ -126,7 +130,7 @@ h4 {
   padding: 64px;
   text-align: center;
 }
-#review_boxes {
+/*#review_boxes {
   padding-top: 50px;
   text-align: center;
 }
@@ -145,4 +149,4 @@ li {
 }
 .dorm_month{
   width: 80%;
-}
+} */

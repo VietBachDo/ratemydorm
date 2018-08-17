@@ -13,69 +13,98 @@
     <link rel="stylesheet" type="text/css" href="{% static 'style_home.css' %}" >
     <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}" >
     <link rel="stylesheet" type="text/css" href="{% static 'w3.css' %}" >
-    
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
 
-    <link href="https://fonts.googleapis.com/css?family=Julius+Sans+One" rel="stylesheet">
-    
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    <script type="text/javascript" src="carousel.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Leckerli+One" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Corben" rel="stylesheet">
+
 </head>
 
 <body>
-  <div class="dropdown">
-    <i class="fas fa-bars fa-4x"></i>
-    <div class="dropdown-menu">
-      <a href="{% url 'schools' %}">Schools</a>
-      <a href="#">Halls</a>
-      <a href="#">News</a>
-      <a href="{% url 'about' %}">About</a>
-      <a href="#">Contact</a>
+<!-- Search boxes -->
+<!-- <div class="search-box">
+<i class="fas fa-chevron-circle-left"></i>
+<span class="line"/>
+
+<i class="fas fa-chevron-circle-right"></i>
+</div> -->
+<!-- Slideshow container -->
+<div class="slideshow-container">
+
+  <!-- Full-width slides/quotes -->
+  <div class="mySlides">
+      <a href"#"><h1>Search by School</h1></a>
+  </div>
+
+  <div class="mySlides">
+    <a href"#"><h1>Search by Hall</h1></a>
+  </div>
+
+  <div class="mySlides">
+    <a href"#"><h1>Write a Review</h1></a>
+
+  </div>
+  <!-- Next/prev buttons -->
+  <a class="prev" onclick="plusSlides(-1)"><i class="fas fa-chevron-circle-left fa-5x"></i></a>
+  <a class="next" onclick="plusSlides(1)"><i class="fas fa-chevron-circle-right fa-5x"></i></a>
+</div>
+<hr class="line"/>
+<hr class="line-2"/>
+<!-- Dots/bullets/indicators -->
+<div class="dot-container">
+  <span class="dot" onclick="currentSlide(1)"></span>
+  <span class="dot" onclick="currentSlide(2)"></span>
+  <span class="dot" onclick="currentSlide(3)"></span>
+</div>
+
+ <hr/>
+
+ <h3 id="review-title">Recent Reviews</h3>
+
+<br/>
+    <div class="row">
+      <div class="col-md-3">
+        <h4>Amy<h4>
+          <h5>University of Wisconsin Madison</h5>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      <div class="text-center">
+        <img src="https://placeimg.com/240/200/any" class="rounded" alt="picture">
+      </div>
+    </div>
+    <div class="col-md-3">
+      <h4>Zachary<h4>
+        <h5>Technical Down Syndrome College</h5>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    <div class="text-center">
+      <img src="https://placeimg.com/240/200/any" class="rounded" alt="picture">
     </div>
   </div>
-
-  <div class="icon">
-  <i class="fab fa-facebook-square fa-2x"></i>
-  <i class="fab fa-twitter-square fa-2x"></i>
-  <i class="fab fa-instagram fa-2x"></i>
-  <i class="fab fa-snapchat-square fa-2x"></i>
+  <div class="col-md-3">
+    <h4>Papa<h4>
+      <h5>Slave Technical University</h5>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+  <div class="text-center">
+    <img src="https://placeimg.com/240/200/any" class="rounded" alt="picture">
   </div>
-
-  <h1 class="head_title">Dorm Diary</h1>
-</br>
-
-<!-- Search boxes -->
-<div id="search_box">
-  <h3 class="search_title">Search for your dorm here</h3>
-<div class="row">
-  <div class="col-md-1">
-  </div>
-  <div class="col-md-5">
-        <div class="thumbnail_overlay">
-          {% load staticfiles %}
-          <img src="{% static 'hall_thumbnail.png' %}" alt="Halls" class="image_thumb">
-          <div class="overlay">
-            <div class="text_thumb">by hall</div>
-          </div>
-        </div>
 </div>
-<div class="col-md-5">
-        <div class="thumbnail_overlay">
-            {% load staticfiles %}
-            <img src="{% static 'college_thumbnail.png' %}" alt="Schools" class="image_thumb">
-            <div class="overlay">
-                <div class="text_thumb">by school</div>
-            </div>
-        </div>
+<div class="col-md-3">
+  <h4>Samir<h4>
+    <h5>Plantation Univercidad</h5>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+  <img src="https://placeimg.com/240/200/any" class="rounded" alt="picture">
+</div>
+
+    </div>
+
+    <!-- quote box -->
+        <div id="quote">
+        <q>Don't let your dorm take away your college experience</q>
+        <p><i>(Zach Miller, Class of 2020, Mankato State University)</i></p>
       </div>
- </div>
-</div>
-<!-- Search boxes end -->
-    <div id="quote">
-    <h2>"Don't let your dorm take away your college experience" - Zach Miller </h2>
-    <p ><i>(Class of 2020, Mankato State University)</i></p>
-  </div>
-      <!-- Grid -->
+          <!--quote box end -->
 
-  <div class="container" >
+  <!-- <div class="container" >
     <div class="row" id="review_boxes">
       <div class="col-md-3" id="box_1">
         <h3><a href="#">Recent Reviews</a></h3>
@@ -96,11 +125,20 @@
         <h3><a href="#">Dorm of the Month</a></h3>
           {% load staticfiles %}
           <img src="{% static 'dorm_month.jpg' %}" alt="Dorm of the Month" class="dorm_month">
-          
+
       </div>
     </div>
-  </div>
+  </div> -->
+  <!-- quote box -->
+      <!-- <div id="quote">
+      <h2>"Don't let your dorm take away your college experience" - Zach Miller </h2>
+      <p ><i>(Class of 2020, Mankato State University)</i></p>
+    </div> -->
+        <!--quote box end -->
 
 
 </body>
+<script>
+showSlides(slideIndex);
+</script>
 </html>
