@@ -23,6 +23,9 @@ urlpatterns = [
     #domain.com/
     url(r'^$', views.homepage, name='homepage'),
 
+    #domain.com/register
+    url(r'^register/$', views.SignUp.as_view(), name='signup'),
+
     #domain.com/about/
     url(r'^about/$', views.about, name='about'),
 
