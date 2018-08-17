@@ -1,7 +1,8 @@
 from django.shortcuts import render, get_object_or_404
-from django.http import HttpResponse
+from django.http import HttpResponseRedirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import College, Dorm, Review
+from django.contrib.auth import authenticate, get_user_model, login, logout
 import xlrd
 import calendar;
 import time;
@@ -99,9 +100,9 @@ def addDorms(request):
 
 class addReview(CreateView):
 	model = Review
-	fields = ['dorm', 'description', 'year_lived']
-
-	def get_context_data(self, *args, **kwargs):
-		context = super(addReview, self).get_context_data(*args, **kwargs)
-		context['timestamp'] = calendar.timegm(time.gmtime())
-		return context
+	fields = ['dorm', 'description', 'year_lived', 'room_rating', 'bathroom_rating', 'dorm_rating']
+	
+	# def get_context_data(self, *args, **kwargs):
+	# 	context = super(addReview, self).get_context_data(*args, **kwargs)
+	# 	context['timestamp'] = calendar.timegm(time.gmtime())
+	# 	return context

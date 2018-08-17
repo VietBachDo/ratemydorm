@@ -15,7 +15,8 @@ Including another URLconf
 """
 from django.conf.urls import url
 from . import views
-from django.views.generic import ListView, DetailView
+from django.contrib import admin
+from django.contrib.auth.decorators import login_required, permission_required
 
 urlpatterns = [
     
@@ -42,5 +43,9 @@ urlpatterns = [
 
     #domain.com/<SCHOOL_NAME>/AddReview
     url(r'^(?P<school_url>[\w, -]+)/AddReview/$', views.addReview.as_view(), name='add-review'),
+
+
+
+
 
 ]

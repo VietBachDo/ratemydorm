@@ -4,9 +4,13 @@
 	<p>{{Name}}</p>
 
 	{% for review in Reviews %}
+		Likes: {{review.likes}}<br>
 		{{review.timestamp}}<br>
 		{{review.year_lived}}<br>
-		{{review.description}}<br><br>
+		{{review.description}}<br>
+		Room: {{review.room_rating}} <br>
+		Bathroom: {{review.bathroom_rating}} <br>
+		Hall: {{review.dorm_rating}} <br><br>
 		
 	{% endfor %}
 {% endblock %}
