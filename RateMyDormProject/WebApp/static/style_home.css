@@ -124,12 +124,23 @@ q{
 /* Add a blue color to the author */
 .author {color: cornflowerblue;}
 }
-#quote {
-  background-color: #fefefe;
-  width: auto;
+#review {
+
+}
+
+.container-fluid {
+  background-color:  #191919 ;
+  text-align: center;
+  margin-top: 50px;
   padding: 64px;
+  color: #fcfae8;
+}
+
+#zach_miller {
   text-align: center;
 }
+
+
 /*#review_boxes {
   padding-top: 50px;
   text-align: center;
