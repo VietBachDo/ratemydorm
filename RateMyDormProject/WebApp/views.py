@@ -1,7 +1,8 @@
 from django.shortcuts import render, get_object_or_404
-from django.http import HttpResponseRedirect
-from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.http import HttpResponseRedirect, HttpResponse
+from django.views.generic.edit import CreateView, UpdateView, DeleteView, View
 from .models import College, Dorm, Review
+# from .forms import ReviewForm
 from django.contrib.auth.forms import UserCreationForm
 from django.urls import reverse_lazy
 from django.views import generic
@@ -104,14 +105,31 @@ class SignUp(SuccessMessageMixin, generic.CreateView):
     form_class = UserCreationForm
     success_url = reverse_lazy('login')
     template_name = 'WebApp/signup.html'
-    success_message = "%(username)s was created successfully"
+    # success_message = "%(username)s was created successfully"	
+    
 
 
-class addReview(CreateView):
+class ReviewCreateView(CreateView):
 	model = Review
-	fields = ['dorm', 'description', 'year_lived', 'room_rating', 'bathroom_rating', 'dorm_rating']
+	fields = ['college', 'dorm', 'description', 'year_lived', 'room_rating', 'bathroom_rating', 'dorm_rating']
+	# form_class = ReviewForm
 	
-	# def get_context_data(self, *args, **kwargs):
-	# 	context = super(addReview, self).get_context_data(*args, **kwargs)
-	# 	context['timestamp'] = calendar.timegm(time.gmtime())
-	# 	return context
+	success_url = reverse_lazy('homepage')
+	# template_name = 'WebApp/review_form.html'
+
+#get the list of dorms after user selects a college in the dropdown menu
+def filter_dorms_by_college(request, college_id):
+	options_html = ""
+	try:
+		college = College.objects.get(pk=college_id)
+		dorms = Dorm.objects.filter(college=college)
+		for dorm in dorms:
+			options_html += "<option value='"+str(dorm.id)+"'>"+dorm.name+"</option>"
+	except:
+		write_exception("Error in fetching options 2")
+	
+	return HttpResponse(options_html)
+
+
+
+

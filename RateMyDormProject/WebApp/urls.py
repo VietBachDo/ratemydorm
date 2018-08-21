@@ -14,11 +14,16 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.conf.urls import url
+from django.urls import path
 from . import views
 from django.contrib import admin
 from django.contrib.auth.decorators import login_required, permission_required
 
 urlpatterns = [
+
+    url(r'filter_dorms/([0-9]+)$', views.filter_dorms_by_college, name='filter_dorms_by_college'),
+    
+    path('add/', views.ReviewCreateView.as_view(), name='review_create'),
     
     #domain.com/
     url(r'^$', views.homepage, name='homepage'),
@@ -44,8 +49,10 @@ urlpatterns = [
     #domain.com/dorm/<DORM_NAME>
     url(r'^dorm/(?P<dorm_name>[\w, -]+)/$', views.dormPage, name='dormPage'),
 
+    
+
     #domain.com/<SCHOOL_NAME>/AddReview
-    url(r'^(?P<school_url>[\w, -]+)/AddReview/$', views.addReview.as_view(), name='add-review'),
+    # url(r'^(?P<school_url>[\w, -]+)/AddReview/$', views.addReview.as_view(), name='review_create'),
 
 
 
